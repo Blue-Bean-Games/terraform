@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/google"
       version = "4.12.0"
     }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "3.10.1"
+    }
   }
   backend "gcs" {
     bucket = "bbg-tfstate"
@@ -14,6 +18,11 @@ terraform {
 provider "google" {
   project = "blue-bean-games"
   region  = "eu-west2"
+}
+
+provider "cloudflare" {
+  email   = var.cloudflare_email
+  api_key = var.cloudflare_api_key
 }
 
 resource "google_dns_managed_zone" "bluebean-games" {
