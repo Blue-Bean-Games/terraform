@@ -70,6 +70,17 @@ resource "google_dns_record_set" "bluebean-games-root-aaaa" {
   ]
 }
 
+resource "google_dns_record_set" "bluebean-games-root-txt" {
+  managed_zone = google_dns_managed_zone.bluebean-games.name
+  name         = google_dns_managed_zone.bluebean-games.dns_name
+  type         = "TXT"
+  ttl          = "300"
+
+  rrdatas = [
+    "google-site-verification=5B0oUWwWZXNJ4q4ZlEbTfiCnTpEj12G1dVd_29t3GBw"
+  ]
+}
+
 resource "google_dns_record_set" "bluebean-games-_github-challenge-blue-bean-games-txt" {
   managed_zone = google_dns_managed_zone.bluebean-games.name
   name         = "_github-challenge-blue-bean-games.${google_dns_managed_zone.bluebean-games.dns_name}"
