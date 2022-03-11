@@ -4,13 +4,23 @@ terraform {
       source  = "hashicorp/google"
       version = "4.12.0"
     }
+    gitlab = {
+      source  = "gitlabhq/gitlab"
+      version = "3.12.0"
+    }
   }
   backend "http" {}
 }
 
+
+
 provider "google" {
   project = "blue-bean-games"
   region  = "eu-west2"
+}
+
+provider "gitlab" {
+  token = var.gitlab_token
 }
 
 resource "google_dns_managed_zone" "bluebean-games" {
