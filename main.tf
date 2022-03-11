@@ -26,6 +26,36 @@ resource "gitlab_group" "blue-bean-games" {
   path = "blue-bean-games"
 }
 
+data "gitlab_user" "grayson" {
+  username = "grayherm"
+}
+
+resource "gitlab_group_membership" "grayson" {
+  group_id     = gitlab_group.blue-bean-games.id
+  user_id      = data.gitlab_user.grayson.id
+  access_level = "developer"
+}
+
+data "gitlab_user" "toby" {
+  username = "tobuss"
+}
+
+resource "gitlab_group_membership" "toby" {
+  group_id     = gitlab_group.blue-bean-games.id
+  user_id      = data.gitlab_user.toby.id
+  access_level = "developer"
+}
+
+data "gitlab_user" "yasser" {
+  username = "yasserhcn"
+}
+
+resource "gitlab_group_membership" "yasser" {
+  group_id     = gitlab_group.blue-bean-games.id
+  user_id      = data.gitlab_user.yasser.id
+  access_level = "developer"
+}
+
 resource "gitlab_project" "terraform" {
   name             = "terraform"
   description      = "Our cloud infrastructure."
@@ -33,22 +63,10 @@ resource "gitlab_project" "terraform" {
   visibility_level = "public"
 }
 
-resource "gitlab_group_membership" "grayherm" {
-  group_id     = gitlab_group.blue-bean-games.id
-  user_id      = 8683882
-  access_level = "developer"
-}
-
-resource "gitlab_group_membership" "tobuss" {
-  group_id     = gitlab_group.blue-bean-games.id
-  user_id      = 2229645
-  access_level = "developer"
-}
-
-resource "gitlab_group_membership" "yasserhcn" {
-  group_id     = gitlab_group.blue-bean-games.id
-  user_id      = 7024172
-  access_level = "developer"
+resource "gitlab_project_approval_rule" "terraform-1" {
+  project            = gitlab_project.terraform.id
+  name               = "terraform-1"
+  approvals_required = 2
 }
 
 resource "gitlab_project" "bluebean-dot-games" {
@@ -58,11 +76,23 @@ resource "gitlab_project" "bluebean-dot-games" {
   visibility_level = "public"
 }
 
+resource "gitlab_project_approval_rule" "bluebean-dot-games-1" {
+  project            = gitlab_project.bluebean-dot-games.id
+  name               = "bluebean-dot-games-1"
+  approvals_required = 2
+}
+
 resource "gitlab_project" "Unnamed-Horror-Game" {
   name             = "Unnamed-Horror-Game"
   description      = "Episodic collection of interactive horror stories."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+}
+
+resource "gitlab_project_approval_rule" "Unnamed-Horror-Game-1" {
+  project            = gitlab_project.Unnamed-Horror-Game.id
+  name               = "Unnamed-Horror-Game-1"
+  approvals_required = 2
 }
 
 resource "gitlab_project" "social-media" {
@@ -72,11 +102,23 @@ resource "gitlab_project" "social-media" {
   visibility_level = "public"
 }
 
+resource "gitlab_project_approval_rule" "social-media-1" {
+  project            = gitlab_project.social-media.id
+  name               = "social-media-1"
+  approvals_required = 2
+}
+
 resource "gitlab_project" "Blue-Bean-Bot" {
   name             = "Blue-Bean-Bot"
   description      = "A bot for our Discord!"
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+}
+
+resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
+  project            = gitlab_project.Blue-Bean-Bot.id
+  name               = "Blue-Bean-Bot-1"
+  approvals_required = 2
 }
 
 resource "google_dns_managed_zone" "bluebean-games" {
