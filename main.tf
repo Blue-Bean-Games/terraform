@@ -121,6 +121,19 @@ resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
   approvals_required = 2
 }
 
+resource "gitlab_project" "Blue-Bean-Games" {
+  name             = "Blue-Bean-Games"
+  description      = "A bot for our Discord!"
+  namespace_id     = gitlab_group.blue-bean-games.id
+  visibility_level = "public"
+}
+
+resource "gitlab_project_approval_rule" "Blue-Bean-Games-1" {
+  project            = gitlab_project.Blue-Bean-Games.id
+  name               = "Blue-Bean-Games-1"
+  approvals_required = 1
+}
+
 resource "google_dns_managed_zone" "bluebean-games" {
   name        = "bluebean-games"
   dns_name    = "bluebean.games."
