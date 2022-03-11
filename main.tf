@@ -33,6 +33,24 @@ resource "gitlab_project" "terraform" {
   visibility_level = "public"
 }
 
+resource "gitlab_group_membership" "grayherm" {
+  group_id     = gitlab_group.blue-bean-games.id
+  user_id      = 8683882
+  access_level = "developer"
+}
+
+resource "gitlab_group_membership" "tobuss" {
+  group_id     = gitlab_group.blue-bean-games.id
+  user_id      = 2229645
+  access_level = "developer"
+}
+
+resource "gitlab_group_membership" "yasserhcn" {
+  group_id     = gitlab_group.blue-bean-games.id
+  user_id      = 7024172
+  access_level = "developer"
+}
+
 resource "gitlab_project" "bluebean-dot-games" {
   name             = "bluebean.games"
   description      = "Our website! :O  -- https://bluebean.games"
