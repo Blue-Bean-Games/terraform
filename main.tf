@@ -12,8 +12,6 @@ terraform {
   backend "http" {}
 }
 
-
-
 provider "google" {
   project = "blue-bean-games"
   region  = "eu-west2"
@@ -21,6 +19,46 @@ provider "google" {
 
 provider "gitlab" {
   token = var.gitlab_token
+}
+
+resource "gitlab_group" "blue-bean-games" {
+  name = "Blue Bean Games"
+  path = "blue-bean-games"
+}
+
+resource "gitlab_project" "terraform" {
+  name             = "terraform"
+  description      = "Our cloud infrastructure."
+  namespace_id     = gitlab_group.blue-bean-games.id
+  visibility_level = "public"
+}
+
+resource "gitlab_project" "bluebean-dot-games" {
+  name             = "bluebean.games"
+  description      = "Our website! :O  -- https://bluebean.games"
+  namespace_id     = gitlab_group.blue-bean-games.id
+  visibility_level = "public"
+}
+
+resource "gitlab_project" "Unnamed-Horror-Game" {
+  name             = "Unnamed-Horror-Game"
+  description      = "Episodic collection of interactive horror stories."
+  namespace_id     = gitlab_group.blue-bean-games.id
+  visibility_level = "public"
+}
+
+resource "gitlab_project" "social-media" {
+  name             = "social-media"
+  description      = "A place for our long-term social media stuff."
+  namespace_id     = gitlab_group.blue-bean-games.id
+  visibility_level = "public"
+}
+
+resource "gitlab_project" "Blue-Bean-Bot" {
+  name             = "Blue-Bean-Bot"
+  description      = "A bot for our Discord!"
+  namespace_id     = gitlab_group.blue-bean-games.id
+  visibility_level = "public"
 }
 
 resource "google_dns_managed_zone" "bluebean-games" {
