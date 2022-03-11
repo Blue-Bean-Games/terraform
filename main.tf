@@ -57,8 +57,9 @@ resource "gitlab_group_membership" "yasser" {
 }
 
 resource "gitlab_project" "terraform" {
-  name             = "terraform"
-  description      = "Our cloud infrastructure."
+  name             = "Terraform"
+  path             = "terraform"
+  description      = "Our cloud infrastructure, managed by Terraform. -- https://terraform.io"
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
 }
@@ -71,6 +72,7 @@ resource "gitlab_project_approval_rule" "terraform-1" {
 
 resource "gitlab_project" "bluebean-dot-games" {
   name             = "bluebean.games"
+  path             = "bluebean.games"
   description      = "Our website! :O  -- https://bluebean.games"
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
@@ -83,7 +85,8 @@ resource "gitlab_project_approval_rule" "bluebean-dot-games-1" {
 }
 
 resource "gitlab_project" "Unnamed-Horror-Game" {
-  name             = "Unnamed-Horror-Game"
+  name             = "Unnamed Horror Game"
+  path             = "unnamed-horror-game"
   description      = "Episodic collection of interactive horror stories."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
@@ -96,7 +99,8 @@ resource "gitlab_project_approval_rule" "Unnamed-Horror-Game-1" {
 }
 
 resource "gitlab_project" "social-media" {
-  name             = "social-media"
+  name             = "Social Media"
+  path             = "social-media"
   description      = "A place for our long-term social media stuff."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
@@ -109,7 +113,8 @@ resource "gitlab_project_approval_rule" "social-media-1" {
 }
 
 resource "gitlab_project" "Blue-Bean-Bot" {
-  name             = "Blue-Bean-Bot"
+  name             = "Blue Bean Bot"
+  path             = "blue-bean-bot"
   description      = "A bot for our Discord!"
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
@@ -122,7 +127,8 @@ resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
 }
 
 resource "gitlab_project" "Blue-Bean-Games" {
-  name             = "Blue-Bean-Games"
+  name             = "Blue Bean Games"
+  path             = "blue-bean-games"
   description      = "A monorepo containing anything not big enough to be its own project."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
