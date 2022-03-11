@@ -62,6 +62,14 @@ resource "gitlab_project" "terraform" {
   description      = "Our cloud infrastructure, managed by Terraform. -- https://terraform.io"
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+
+  issues_enabled             = true
+  merge_requests_enabled     = true
+  wiki_enabled               = false
+  snippets_enabled           = false
+  container_registry_enabled = false
+  packages_enabled           = false
+  pipelines_enabled          = false
 }
 
 resource "gitlab_project_approval_rule" "terraform-1" {
@@ -76,6 +84,14 @@ resource "gitlab_project" "bluebean-dot-games" {
   description      = "Our website! :O  -- https://bluebean.games"
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+
+  issues_enabled             = true
+  merge_requests_enabled     = true
+  wiki_enabled               = false
+  snippets_enabled           = false
+  container_registry_enabled = false
+  packages_enabled           = false
+  pipelines_enabled          = false
 }
 
 resource "gitlab_project_approval_rule" "bluebean-dot-games-1" {
@@ -90,6 +106,14 @@ resource "gitlab_project" "Unnamed-Horror-Game" {
   description      = "Episodic collection of interactive horror stories."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+
+  issues_enabled             = true
+  merge_requests_enabled     = true
+  wiki_enabled               = false
+  snippets_enabled           = false
+  container_registry_enabled = false
+  packages_enabled           = false
+  pipelines_enabled          = false
 }
 
 resource "gitlab_project_approval_rule" "Unnamed-Horror-Game-1" {
@@ -104,6 +128,14 @@ resource "gitlab_project" "social-media" {
   description      = "A place for our long-term social media stuff."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+
+  issues_enabled             = true
+  merge_requests_enabled     = true
+  wiki_enabled               = false
+  snippets_enabled           = false
+  container_registry_enabled = false
+  packages_enabled           = false
+  pipelines_enabled          = false
 }
 
 resource "gitlab_project_approval_rule" "social-media-1" {
@@ -118,6 +150,14 @@ resource "gitlab_project" "Blue-Bean-Bot" {
   description      = "A bot for our Discord!"
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+
+  issues_enabled             = true
+  merge_requests_enabled     = true
+  wiki_enabled               = false
+  snippets_enabled           = false
+  container_registry_enabled = true
+  packages_enabled           = false
+  pipelines_enabled          = true
 }
 
 resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
@@ -129,9 +169,17 @@ resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
 resource "gitlab_project" "Blue-Bean-Games" {
   name             = "Blue Bean Games"
   path             = "blue-bean-games"
-  description      = "A monorepo containing anything not big enough to be its own project."
+  description      = "A monorepo containing anything not big or specific enough to be its own project."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
+
+  issues_enabled             = true
+  merge_requests_enabled     = true
+  wiki_enabled               = false
+  snippets_enabled           = false
+  container_registry_enabled = false
+  packages_enabled           = false
+  pipelines_enabled          = false
 }
 
 resource "gitlab_project_approval_rule" "Blue-Bean-Games-1" {
