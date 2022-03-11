@@ -123,7 +123,7 @@ resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
 
 resource "gitlab_project" "Blue-Bean-Games" {
   name             = "Blue-Bean-Games"
-  description      = "A bot for our Discord!"
+  description      = "A monorepo containing anything not big enough to be its own project."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
 }
