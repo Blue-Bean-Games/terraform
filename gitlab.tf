@@ -53,6 +53,13 @@ resource "gitlab_project" "terraform" {
   pipelines_enabled          = false
 }
 
+resource "gitlab_project_mirror" "terraform-to-github" {
+  project             = gitlab_project.terraform.id
+  url                 = "https://${var.github_mirror_token}@github.com/Blue-Bean-Games/terraform"
+  enabled             = true
+  keep_divergent_refs = false
+}
+
 resource "gitlab_project_approval_rule" "terraform-1" {
   project            = gitlab_project.terraform.id
   name               = "terraform-1"
@@ -73,6 +80,13 @@ resource "gitlab_project" "bluebean-dot-games" {
   container_registry_enabled = false
   packages_enabled           = false
   pipelines_enabled          = false
+}
+
+resource "gitlab_project_mirror" "bluebean-dot-games-to-github" {
+  project             = gitlab_project.bluebean-dot-games.id
+  url                 = "https://${var.github_mirror_token}@github.com/Blue-Bean-Games/bluebean.games"
+  enabled             = true
+  keep_divergent_refs = false
 }
 
 resource "gitlab_project_approval_rule" "bluebean-dot-games-1" {
@@ -97,6 +111,13 @@ resource "gitlab_project" "Unnamed-Horror-Game" {
   pipelines_enabled          = false
 }
 
+resource "gitlab_project_mirror" "Unnamed-Horror-Game-to-github" {
+  project             = gitlab_project.Unnamed-Horror-Game.id
+  url                 = "https://${var.github_mirror_token}@github.com/Blue-Bean-Games/Unnamed-Horror-Game"
+  enabled             = true
+  keep_divergent_refs = false
+}
+
 resource "gitlab_project_approval_rule" "Unnamed-Horror-Game-1" {
   project            = gitlab_project.Unnamed-Horror-Game.id
   name               = "Unnamed-Horror-Game-1"
@@ -117,6 +138,13 @@ resource "gitlab_project" "social-media" {
   container_registry_enabled = false
   packages_enabled           = false
   pipelines_enabled          = false
+}
+
+resource "gitlab_project_mirror" "social-media-to-github" {
+  project             = gitlab_project.social-media.id
+  url                 = "https://${var.github_mirror_token}@github.com/Blue-Bean-Games/social-media"
+  enabled             = true
+  keep_divergent_refs = false
 }
 
 resource "gitlab_project_approval_rule" "social-media-1" {
@@ -141,6 +169,13 @@ resource "gitlab_project" "Blue-Bean-Bot" {
   pipelines_enabled          = true
 }
 
+resource "gitlab_project_mirror" "Blue-Bean-Bot-to-github" {
+  project             = gitlab_project.Blue-Bean-Bot.id
+  url                 = "https://${var.github_mirror_token}@github.com/Blue-Bean-Games/Blue-Bean-Bot"
+  enabled             = true
+  keep_divergent_refs = false
+}
+
 resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
   project            = gitlab_project.Blue-Bean-Bot.id
   name               = "Blue-Bean-Bot-1"
@@ -163,6 +198,13 @@ resource "gitlab_project" "Blue-Bean-Games" {
   pipelines_enabled          = false
 }
 
+resource "gitlab_project_mirror" "Blue-Bean-Games-to-github" {
+  project             = gitlab_project.Blue-Bean-Games.id
+  url                 = "https://${var.github_mirror_token}@github.com/Blue-Bean-Games/blue-bean-games"
+  enabled             = true
+  keep_divergent_refs = false
+}
+
 resource "gitlab_project_approval_rule" "Blue-Bean-Games-1" {
   project            = gitlab_project.Blue-Bean-Games.id
   name               = "Blue-Bean-Games-1"
@@ -183,6 +225,13 @@ resource "gitlab_project" "dot-github" {
   container_registry_enabled = false
   packages_enabled           = false
   pipelines_enabled          = false
+}
+
+resource "gitlab_project_mirror" "dot-github-to-github" {
+  project             = gitlab_project.dot-github.id
+  url                 = "https://${var.github_mirror_token}@github.com/Blue-Bean-Games/.github"
+  enabled             = true
+  keep_divergent_refs = false
 }
 
 resource "gitlab_project_approval_rule" "dot-github-1" {
