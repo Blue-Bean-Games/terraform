@@ -188,6 +188,28 @@ resource "gitlab_project_approval_rule" "Blue-Bean-Games-1" {
   approvals_required = 1
 }
 
+resource "gitlab_project" "dot-github" {
+  name             = "dot-github"
+  path             = "dot-github"
+  description      = "Root repo for our GitHub organisation -- https://github.com/Blue-Bean-Games"
+  namespace_id     = gitlab_group.blue-bean-games.id
+  visibility_level = "public"
+
+  issues_enabled             = false
+  merge_requests_enabled     = false
+  wiki_enabled               = false
+  snippets_enabled           = false
+  container_registry_enabled = false
+  packages_enabled           = false
+  pipelines_enabled          = false
+}
+
+resource "gitlab_project_approval_rule" "dot-github-1" {
+  project            = gitlab_project.dot-github.id
+  name               = "dot-github-1"
+  approvals_required = 1
+}
+
 resource "google_dns_managed_zone" "bluebean-games" {
   name        = "bluebean-games"
   dns_name    = "bluebean.games."
