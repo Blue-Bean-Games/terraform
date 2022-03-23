@@ -63,7 +63,7 @@ resource "gitlab_project_mirror" "terraform-to-github" {
 resource "gitlab_project_approval_rule" "terraform-1" {
   project            = gitlab_project.terraform.id
   name               = "terraform-1"
-  approvals_required = 2
+  approvals_required = 1
 }
 
 resource "gitlab_project" "bluebean-dot-games" {
@@ -92,7 +92,7 @@ resource "gitlab_project_mirror" "bluebean-dot-games-to-github" {
 resource "gitlab_project_approval_rule" "bluebean-dot-games-1" {
   project            = gitlab_project.bluebean-dot-games.id
   name               = "bluebean-dot-games-1"
-  approvals_required = 2
+  approvals_required = 1
 }
 
 resource "gitlab_project" "Unnamed-Horror-Game" {
@@ -121,7 +121,7 @@ resource "gitlab_project_mirror" "Unnamed-Horror-Game-to-github" {
 resource "gitlab_project_approval_rule" "Unnamed-Horror-Game-1" {
   project            = gitlab_project.Unnamed-Horror-Game.id
   name               = "Unnamed-Horror-Game-1"
-  approvals_required = 2
+  approvals_required = 1
 }
 
 resource "gitlab_project" "social-media" {
@@ -150,7 +150,7 @@ resource "gitlab_project_mirror" "social-media-to-github" {
 resource "gitlab_project_approval_rule" "social-media-1" {
   project            = gitlab_project.social-media.id
   name               = "social-media-1"
-  approvals_required = 2
+  approvals_required = 1
 }
 
 resource "gitlab_project" "Blue-Bean-Bot" {
@@ -179,7 +179,7 @@ resource "gitlab_project_mirror" "Blue-Bean-Bot-to-github" {
 resource "gitlab_project_approval_rule" "Blue-Bean-Bot-1" {
   project            = gitlab_project.Blue-Bean-Bot.id
   name               = "Blue-Bean-Bot-1"
-  approvals_required = 2
+  approvals_required = 1
 }
 
 resource "gitlab_project" "Blue-Bean-Games" {
