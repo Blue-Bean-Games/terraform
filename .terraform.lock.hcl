@@ -6,6 +6,7 @@ provider "registry.terraform.io/gitlabhq/gitlab" {
   constraints = "3.12.0"
   hashes = [
     "h1:gKHsYeQByp9i3O1ksVptVo2LKJT8+qqf/Qi3Uqp6/yc=",
+    "h1:xd7K0MzsZmRnMTeZFpfSaBM59d70DlkAUv/szwFYTwk=",
     "zh:1c3e89cf19118fc07d7b04257251fc9897e722c16e0a0df7b07fcd261f8c12e7",
     "zh:207f7ffaaf16f3d0db9eec847867871f4a9eb9bb9109d9ab9c9baffade1a4688",
     "zh:2360bdd3253a15fbbb6581759aa9499235de670d13f02272cbe408cb425dc625",
@@ -28,6 +29,7 @@ provider "registry.terraform.io/hashicorp/google" {
   constraints = "4.12.0"
   hashes = [
     "h1:MxA1JvII0a3vg5/iOGzA8E0VezL1tfFp7ZgMDA4FkrQ=",
+    "h1:kwYfr1VYbiRgtzqDORYbSNi82v1Z4KBs5F/SqSEalUg=",
     "zh:104c9b1a14a0631ced8072f4cce00ea8e9d063f13c5f8cce0f0d9a1ad64230a1",
     "zh:14bc7b8ba2f522e512b6a1405db443e89a0d7cb3e27edea3630fe5c6c71e9f71",
     "zh:1d53032ccaac3b6452a8a91e6f68a022ad0a26affa70702a2cfa0346f4c3f2d3",
