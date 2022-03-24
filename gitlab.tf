@@ -109,6 +109,8 @@ resource "gitlab_project" "Unnamed-Horror-Game" {
   container_registry_enabled = false
   packages_enabled           = false
   pipelines_enabled          = true
+
+  pages_access_level = "public"
 }
 
 resource "gitlab_project_mirror" "Unnamed-Horror-Game-to-github" {
