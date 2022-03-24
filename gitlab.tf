@@ -96,8 +96,8 @@ resource "gitlab_project_approval_rule" "bluebean-dot-games-1" {
 }
 
 resource "gitlab_project" "Unnamed-Horror-Game" {
-  name             = "Unnamed Horror Game"
-  path             = "unnamed-horror-game"
+  name             = "Perturbed"
+  path             = "perturbed"
   description      = "Episodic collection of interactive horror stories."
   namespace_id     = gitlab_group.blue-bean-games.id
   visibility_level = "public"
@@ -108,7 +108,7 @@ resource "gitlab_project" "Unnamed-Horror-Game" {
   snippets_enabled           = false
   container_registry_enabled = false
   packages_enabled           = false
-  pipelines_enabled          = false
+  pipelines_enabled          = true
 }
 
 resource "gitlab_project_mirror" "Unnamed-Horror-Game-to-github" {
