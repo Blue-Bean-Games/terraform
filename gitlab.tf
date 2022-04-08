@@ -2,9 +2,14 @@ provider "gitlab" {
   token = var.gitlab_token
 }
 
+data "gitlab_group" "unnamed-group" {
+  full_path = "unnamed.group"
+}
+
 resource "gitlab_group" "blue-bean-games" {
-  name = "Blue Bean Games"
-  path = "blue-bean-games"
+  name      = "Blue Bean Games"
+  path      = "blue-bean-games"
+  parent_id = data.gitlab_group.unnamed-group.id
 }
 
 data "gitlab_user" "grayson" {
